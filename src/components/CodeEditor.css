@@ -1,0 +1,42 @@
+.editor {
+    height: calc(100vh - 4rem);
+    width: 100%;
+    border-right: 1px solid #ccc;
+  }
+  
+  .language-selector {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+  }
+  
+  .output {
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    overflow: auto;
+    z-index: -1;
+  }
+  
+  .run-button {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: #5c3d86;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .run-button:hover {
+    background-color: #4a2f68;
+  }
+  
+  .output-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+  }
