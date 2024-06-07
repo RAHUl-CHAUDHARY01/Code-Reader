@@ -7,6 +7,7 @@ const fetchuser= (req,res,next)=>{
     if(!token){
         res.status(401).send({error:"please authenticate using a valid token"}) // blank token
     } 
+    console.log(token)
     try {
         const data = jwt.verify(token,JWT_SECRET);
         console.log(data)

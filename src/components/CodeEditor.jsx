@@ -34,6 +34,7 @@ const CodeEditor = ({ noteContent, tagContent }) => {
       flexDirection="column"
       position="relative"
     >
+
       <HStack spacing={4} position="absolute" top="0" left="0" zIndex="2" right="0">
         <Box
           width="650px"

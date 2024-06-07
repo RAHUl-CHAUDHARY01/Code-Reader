@@ -38,7 +38,7 @@ const Output = ({ editorRef, language }) => {
       display="flex"
       flexDirection="column"
       position="relative"
-      top="34px"
+      top="37px"
       backgroundColor="#153448"
     >
       <Box
@@ -63,12 +63,12 @@ const Output = ({ editorRef, language }) => {
           Output
         </Text>
         <Button
-          variant="outline"
-          colorScheme="red"
+          // variant="outline"
+          // colorScheme="red"
           mb={4}
-          position="relative"
-          bottom="59px"
-
+          // position="relative"
+          // bottom="68px"
+          class="btn btn-outline-light"
           isLoading={isLoading}
           onClick={runCode}
         >

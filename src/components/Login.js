@@ -186,7 +186,7 @@ const button = styled(ButtonSpan)`
 `;
 
 const Login = (props) => {
-    const { showAlert } = props;
+    const { showAlert, setLoggedin } = props;
     const [credentials, setCredentials] = useState({ email: "", password: "" });
     let history = useNavigate();
 
@@ -200,10 +200,15 @@ const Login = (props) => {
             body: JSON.stringify({ email: credentials.email, password: credentials.password })
         });
         const json = await response.json()
-        console.log(json);
+      
+        // console.log(json);
         if (json.success) {
             // Save the auth token and redirect
+            // const name= await body.name;
+            // console.log(name);
             localStorage.setItem('token', json.authtoken);
+
+            setLoggedin(true)
             showAlert("LoggedIn Successfully", "success");
             history("/");
         } else {

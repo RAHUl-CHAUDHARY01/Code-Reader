@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
   
 
-const Navbar = () => {
+const Navbar = ({loggedin}) => {
     let location = useLocation();
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark" style={{backgroundColor:"pink"}}>
@@ -15,7 +15,7 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className={`nav-link ${location.pathname==="/"? "active": ""}`} aria-current="page" to="/">Home</Link>
+                            <Link className={`nav-link ${location.pathname==="/"? "active": ""}`} aria-current="page" to="/">Your Codes</Link>
                         </li>
 
                         <li className="nav-item">
@@ -25,10 +25,13 @@ const Navbar = () => {
                             <Link className={`nav-link ${location.pathname==="/about"? "active": ""}`} to="/about">About</Link>
                         </li>
                     </ul>
-                    <form className="d-flex"> 
-                    <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
-                    <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link>
-                    </form>
+                    {
+                        (!loggedin) ? <form className="d-flex"> 
+                        <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
+                        <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link>
+                        </form> : ""
+                    }
+                    
                 </div>
             </div>
         </nav>

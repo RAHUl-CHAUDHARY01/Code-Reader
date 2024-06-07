@@ -25,6 +25,7 @@ function App() {
     },1500);
   }
 
+  const [loggedin, setLoggedin] = useState(false)
 
 
 
@@ -34,15 +35,15 @@ function App() {
     
 
       <Router>
-      <Navbar/>
+      <Navbar loggedin={loggedin}/>
       <Alert alert={alert}/>
         <div className="container"  >
             <Routes>
-            <Route path="/" element={<Home showAlert={showAlert} />} />
+            <Route path="/" element={<Home showAlert={showAlert} loggedin={loggedin} />} />
             <Route path="/about" element={<About />} />
-            <Route path="/login" element={<Login showAlert={showAlert}/>} />
+            <Route path="/login" element={<Login showAlert={showAlert} setLoggedin={setLoggedin} />} />
             <Route path="/signup" element={<Signup showAlert={showAlert}/>} />
-            <Route path="/boxes" element={<Boxes  />} />
+            <Route path="/boxes" element={<Boxes  loggedin={loggedin}/>} />
             {/* <Route path="*" element={<NoMatch />} /> Catch-all route */}
             </Routes>
         </div>

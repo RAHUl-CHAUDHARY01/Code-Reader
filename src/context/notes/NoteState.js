@@ -3,8 +3,25 @@ import { useState } from "react";
 
 const NoteState = (props) => {
   const host = "http://localhost:5000"
+  const token = localStorage.getItem('token')
   const notesInitial = []
   const [notes, setNotes] = useState(notesInitial)
+//   const UsersInitial = []
+//   const [Users, setUsers] = useState(UsersInitial)
+
+
+// //Get User credentials
+// const getUser = async () => {
+//   // API Call 
+//   const response = await fetch(`${host}/api/auth/getuser`, {
+//     method: 'POST',
+//     headers: {
+//       "auth-token":token
+//     }
+//   });
+//   const json = await response.json()
+//   setUsers(json)
+// }
 
   // Get all Notes
   const getNotes = async () => {
@@ -13,7 +30,7 @@ const NoteState = (props) => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjYyYjY4N2I4ZWYwMjg4YWEwNTAxNzE0In0sImlhdCI6MTcxNDEyMDg1OH0.AaBbpWA1p5a3Xq4PXPFXwUWdEvue1sTmy5qYtk40Lb0"
+        "auth-token":token
       }
     });
     const json = await response.json() 
@@ -28,7 +45,7 @@ const NoteState = (props) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjYyYjY4N2I4ZWYwMjg4YWEwNTAxNzE0In0sImlhdCI6MTcxNDEyMDg1OH0.AaBbpWA1p5a3Xq4PXPFXwUWdEvue1sTmy5qYtk40Lb0"
+        "auth-token": token
       },
       body: JSON.stringify({title, description, tag})
     });
@@ -47,7 +64,7 @@ const NoteState = (props) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjYyYjY4N2I4ZWYwMjg4YWEwNTAxNzE0In0sImlhdCI6MTcxNDEyMDg1OH0.AaBbpWA1p5a3Xq4PXPFXwUWdEvue1sTmy5qYtk40Lb0"
+        "auth-token":token
       }
     });
     const json = response.json(); 

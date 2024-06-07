@@ -4,14 +4,14 @@ import Noteitem from './Noteitem';
 import AddNote from './AddNote';
 import { useNavigate } from 'react-router-dom';
 
-const Notes = () => {
+const Notes = ({loggedin}) => {
     const context = useContext(noteContext);
     const { notes, getNotes, editNote } = context;
     let history= useNavigate();
+    console.log(loggedin);
     useEffect(() => {
-        if(localStorage.getItem('token')){
+        if(loggedin){
             getNotes()
-            console.log("hiiiiiiiiiiiiiii");
             console.log(localStorage.getItem('token'));
             // console.log('token')
         }
@@ -40,7 +40,7 @@ const Notes = () => {
 
     return (
         <>
-            <AddNote />
+            {/* <AddNote /> */}
             <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
             </button>
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -57,8 +57,9 @@ const Notes = () => {
                                     <input type="text" className="form-control" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" onChange={onChange} minLength={5} required/>
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="description" className="form-label">Code</label>
-                                    <input type="text" className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} minLength={5} required/>
+                                    {/* <label htmlFor="description" className="form-label">Code</label> */}
+                                    Code
+                                    <textarea cols="40" rows="5" className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} minLength={5} required/>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="tag" className="form-label">Language Used</label>

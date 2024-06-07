@@ -27,13 +27,13 @@ const LanguageSelector = ({ language, onSelect }) => {
         Language:
       </Text>
 <Menu closeOnSelect={false} color="black"className="element-on-top"  >
-        <MenuButton as={Button} color="black" colorScheme='black' zIndex={2}>
-        {language}<i className="fa-solid fa-chevron-down"></i></MenuButton>
+        <MenuButton as={Button}  class="btn btn-outline-light" color="black" colorScheme='black' zIndex={2}>
+      Select<i className="fa-solid fa-chevron-down"></i></MenuButton>
         
 
-        <MenuList bg="black" minWidth='100px' zIndex={2} color={"blue"} colorScheme='pink' backgroundColor="black">
+        <MenuList  minWidth='100px' zIndex={2} color={"blue"} colorScheme='pink' >
           {Object.entries(LANGUAGE_VERSIONS).map(([lang, version]) => (
-            <MenuItemOption
+            <MenuItemOption class="btn btn-outline-light  "
               key={lang}
               onClick={() => onSelect(lang)}
               bg={lang === language ? "gray.900" : "gray.900"}
